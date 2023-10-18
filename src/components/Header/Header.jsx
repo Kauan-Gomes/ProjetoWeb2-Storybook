@@ -1,16 +1,21 @@
 'use client';
-import Button from '../Button'
 
-export default function Header() {
+
+export default function Header({ listaNotas, handleOptionChange, selectedOption }) {
   return (
-    <div className="flex w-10/12 h-28 bg-white/30 mx-auto mt-10 rounded-full justify-around items-center">
-      <Button>
-        <img className='h-12' src="/back.svg" alt="icone de seta que indica a volta para a sessão anterior do site" />
-      </Button>
-      <h1 className='font-semibold text-4xl'>Betagera Notes</h1>
-      <Button>
-        <img className='h-12' src="/plus.svg" alt="" />
-      </Button>
+    <div className="flex w-full h-20 bg-yellow-400 mx-auto justify-around items-center border-b-2 shadow-lg border-black/20">
+      <h1 className='font-semibold text-4xl '>Betagera Notes</h1>
+
+      <div className='flex gap-2'>
+        <label className='font-semibold p-1' for="note">Lista de notas: </label>
+        <input className='rounded shadow-lg p-1 pl-3' list="notes" name="note" id="note" value={selectedOption} onChange={handleOptionChange} />
+        <datalist id="notes">
+          {listaNotas.map((notas) => 
+            <option value={notas.titulo} />
+            
+          )}
+        </datalist>
+      </div>
     </div>
   )
 }
