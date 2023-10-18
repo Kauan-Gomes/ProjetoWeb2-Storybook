@@ -69,7 +69,7 @@ export default function Home() {
           handleOptionChange={handleOptionChange}
           selectedOption={selectedOption}
         />
-        <section className='relative mt-5 '>
+        <section className='flex mt-5 '>
           <Modal/>
           <ListaNotas listaNotas={filteredNotes} />
         </section>
