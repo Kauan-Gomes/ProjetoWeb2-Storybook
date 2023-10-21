@@ -2,7 +2,8 @@
 
 import Header from '@/components/Header/Header'
 import ListaNotas from '@/components/ListaNotas/ListaNotas'
-import Modal from '@/components/Modal/Modal';
+import ModalAdd from '@/components/ModalAdd/ModalAdd';
+import ModalEdit from '@/components/ModalEdit/ModalEdit';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -51,7 +52,7 @@ export default function Home() {
   //valores das notas filtradas 
   const [filteredNotes, setFilteredNotes] = useState(listaNotas)
 
-
+ 
   //função para adicionar notas
   const handleAddNotes = (event, color) => {
     
@@ -93,7 +94,7 @@ export default function Home() {
           selectedOption={selectedOption}
         />
         <section className='flex mt-5 '>
-          <Modal color={color} setColor={setColor} functionAddnotes={handleAddNotes}/>
+          <ModalAdd color={color} setColor={setColor} functionAddnotes={handleAddNotes}/>
           <ListaNotas listaNotas={filteredNotes}/>
         </section>
       </body>

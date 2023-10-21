@@ -1,6 +1,7 @@
+import Input from "../Input.jsx/Input"
 
 
-const Modal = ({color, setColor, functionAddnotes, updateNotes}) => {
+const ModalAdd = ({color, setColor, functionAddnotes}) => {
 
   
   const handleSubmit = (event) => {
@@ -16,8 +17,12 @@ const Modal = ({color, setColor, functionAddnotes, updateNotes}) => {
 
   return (
     <form onSubmit={handleSubmit} className="relative border-2 left-5 w-96 h-[500px] rounded text-center overflow-hidden flex flex-col gap-5 items-center">
-      <input className={`max-w-full text-center text-3xl focus:outline-none ${color} pt-4  break-all overflow-auto border-b- pb-3 `} placeholder="Título" type="text" />
-
+      <Input
+      color={color}
+      className=""
+      placeholder="Título"
+      type="text"
+      />
       <textarea placeholder="Faça sua anotação..." className="text-lg mx-5 p-2 focus:outline-none resize-none" cols="30" rows="9"></textarea>
 
       <div className="flex flex-col gap-3 items-center">
@@ -34,12 +39,9 @@ const Modal = ({color, setColor, functionAddnotes, updateNotes}) => {
           </span>
         </div>
       </div>
-
-
-
       <button type="submit" className={`font-semibold rounded-full bg-[#ffd569] w-3/5 py-1 text-xl hover:bg-yellow-500`} >Adicionar</button>
     </form>
   )
 }
 
-export default Modal
+export default ModalAdd
