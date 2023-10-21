@@ -12,7 +12,6 @@ export default function Header({ listaNotas, handleOptionChange, selectedOption 
         <datalist id="notes">
           {listaNotas.map((notas) => 
             <option value={notas.titulo} />
-            
           )}
         </datalist>
       </div>

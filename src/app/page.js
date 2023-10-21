@@ -10,8 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
 
+  
 
-  const [listaNotas, setlistasNotas] = useState([
+  const [listaNotas, setlistaNotas] = useState([
     {
       id: 1,
       titulo: "mercado",
@@ -66,25 +67,22 @@ export default function Home() {
       cor: color
     };
 
-
     //adicionando a nota as outras
-    setlistasNotas([newNote, ...listaNotas]);
+    
+    setlistaNotas([newNote, ...listaNotas]);
+    setFilteredNotes([newNote, ...listaNotas])
   }
 
   //função para filtrar as notas com base na barra de pesquisa do input 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
 
-    const filteredNotes = listaNotas.filter((note) => {
+    const filterNotes = listaNotas.filter((note) => {
       return note.titulo.toLowerCase().includes(event.target.value.toLowerCase());
     });
-    setFilteredNotes(filteredNotes)
     
+    setFilteredNotes(filterNotes)
   };
-  
-  
-
-  console.log(filteredNotes)
   
   return (
     <>
@@ -96,7 +94,7 @@ export default function Home() {
         />
         <section className='flex mt-5 '>
           <Modal color={color} setColor={setColor} functionAddnotes={handleAddNotes}/>
-          <ListaNotas listaNotas={listaNotas} />
+          <ListaNotas listaNotas={filteredNotes}/>
         </section>
       </body>
     </>
