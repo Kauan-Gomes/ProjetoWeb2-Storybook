@@ -1,4 +1,6 @@
+import Button from "../Button.jsx/Button"
 import Input from "../Input.jsx/Input"
+import SpanCores from "../SpanCor/SpanCores"
 
 
 const ModalAdd = ({color, setColor, functionAddnotes}) => {
@@ -27,19 +29,14 @@ const ModalAdd = ({color, setColor, functionAddnotes}) => {
 
       <div className="flex flex-col gap-3 items-center">
         <label className="text-lg">Selecione uma cor </label>
-        <div className="flex gap-3">
-          <span onClick={() => setColor("bg-black/10")}  className="border cursor-pointer shadow hover:bg-black/10 bg-black/30 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor("bg-red-200")} className="border cursor-pointer shadow hover:bg-red-500 bg-red-400 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor("bg-yellow-200")}  className="border cursor-pointer shadow hover:bg-yellow-300 bg-yellow-200 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor("bg-green-200")} className="border cursor-pointer shadow hover:bg-green-600 bg-green-400 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor("bg-blue-200")}  className="border cursor-pointer shadow hover:bg-blue-600 bg-blue-400 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor("bg-violet-200")} className="border cursor-pointer shadow hover:bg-violet-600 bg-violet-400 h-5 w-5 rounded-full"></span>
-          <span onClick={() => setColor('bg-white')} className={`border cursor-pointer shadow ${color === 'bg-white' ? 'bg-white' : 'bg-transparent'} h-5 w-5 rounded-full relative`}>
-              <span className="absolute transform -rotate-45 left-[1px] bg-red-900 top-1/2 h-[1.4px] border-red-800" style={{ width: '90%', transformOrigin: 'center' }}></span>
-          </span>
+        <div className="">
+          <SpanCores setColor={setColor}/>
+          
         </div>
       </div>
-      <button type="submit" className={`font-semibold rounded-full bg-[#ffd569] w-3/5 py-1 text-xl hover:bg-yellow-500`} >Adicionar</button>
+      <Button 
+      color='bg-yellow-300'
+      type="submit" >Adicionar</Button>
     </form>
   )
 }

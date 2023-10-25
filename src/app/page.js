@@ -95,7 +95,7 @@ export default function Home() {
         />
         <section className='flex mt-5 '>
           <ModalAdd color={color} setColor={setColor} functionAddnotes={handleAddNotes}/>
-          <ListaNotas listaNotas={filteredNotes}/>
+          <ListaNotas setColor={setColor} color={color} listaNotas={filteredNotes}/>
         </section>
       </body>
     </>
