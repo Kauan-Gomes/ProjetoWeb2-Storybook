@@ -3,7 +3,7 @@
 
 export default function Header({ listaNotas, handleOptionChange, selectedOption }) {
   return (
-    <div className="flex w-full h-20 bg-[#ffd569be] mx-auto justify-around items-center border-b-2 shadow-lg border-black/20">
+    <div className="flex w-full h-20 bg-[#ffd569] mx-auto justify-around items-center border-b-2 shadow-lg border-black/20">
       <h1 className='font-semibold text-4xl '>Betagera Notes</h1>
 
       <div className='flex gap-2'>

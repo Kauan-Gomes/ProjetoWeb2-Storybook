@@ -3,15 +3,16 @@
 import { useState } from "react"
 import ModalEdit from "../ModalEdit/ModalEdit"
 import Notas from "../Notas"
+import './style.css'
 
-export default function ListaNotas({ listaNotas, setColor, color }) {
+export default function ListaNotas({ listaNotas}) {
 
     const [tituloModal, setTituloModal] = useState('')
     const [notasModal, setNotasModal] = useState()
     const [corModal, setCorModal] = useState('bg-violet-200')
 
     // Usar um estado só para manipular tudo, usando um objeto para isso, não precisando dos outros
-    const [modalEdit, setModalEdit] = useState({
+    const [atributes, setAtributes] = useState({
         titulo: "",
         notas: "",
         cor: "", 
@@ -20,11 +21,10 @@ export default function ListaNotas({ listaNotas, setColor, color }) {
 
 
     return (
-        <div className="absolute bg-white/50 w-8/12 right-5 overflow-auto h-[500px]  rounded 2xl:h-[700px] flex flex-wrap text-center border-2">
+        <div className={`absolute border-none w-8/12 right-5 overflow-auto h-[500px] rounded-xl  2xl:h-[700px] flex flex-wrap text-center border-2 rolagem`}>
             {listaNotas.map((props) => 
             <Notas 
-            setTituloModal={setTituloModal}
-            setNotasModal={setNotasModal}
+            setAtributes={setAtributes}
             setToggleClose={setToggleClose}
             key={props.id}  
             {...props} 
@@ -33,12 +33,8 @@ export default function ListaNotas({ listaNotas, setColor, color }) {
 
             <ModalEdit
             //mudar as props, ao inves de passar essas separadas, passar uma que contenha todas as informações
-                titulo={tituloModal}
-                setTituloModal={setTituloModal}
-                notas={notasModal}
-                setNotasModal={setNotasModal}
-                corModal={corModal}
-                setCorModal={setCorModal}
+                atributes={atributes}
+                setAtributes={setAtributes}
                 toggleClose={toggleClose}
                 setToggleClose={setToggleClose}
             />

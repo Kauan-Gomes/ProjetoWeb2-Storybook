@@ -46,13 +46,16 @@ export default function Home() {
     }
   ])
   
-  const [color, setColor] = useState('bg-white')
+  const [color, setColor] = useState({
+    cor: ""
+  })
   //valores do input com base no option
   const [selectedOption, setSelectedOption] = useState("");
   //valores das notas filtradas 
   const [filteredNotes, setFilteredNotes] = useState(listaNotas)
 
  
+  
   //função para adicionar notas
   const handleAddNotes = (event, color) => {
     
@@ -65,7 +68,7 @@ export default function Home() {
       id: uuidv4(),
       titulo: titulo == "" ? "undefined" : titulo,
       notas: notas,
-      cor: color
+      cor: color.cor
     };
 
     //adicionando a nota as outras
@@ -73,6 +76,7 @@ export default function Home() {
     setlistaNotas([newNote, ...listaNotas]);
     setFilteredNotes([newNote, ...listaNotas])
   }
+  
 
   //função para filtrar as notas com base na barra de pesquisa do input 
   const handleOptionChange = (event) => {
@@ -87,7 +91,7 @@ export default function Home() {
   
   return (
     <>
-      <body className="h-full">
+      <body className="h-full bg-[url('/fundoCortiço.avif')]">
         <Header
           listaNotas={filteredNotes}
           handleOptionChange={handleOptionChange}

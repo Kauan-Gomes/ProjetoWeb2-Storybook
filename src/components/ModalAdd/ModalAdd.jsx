@@ -18,9 +18,9 @@ const ModalAdd = ({color, setColor, functionAddnotes}) => {
   } 
 
   return (
-    <form onSubmit={handleSubmit} className="relative border-2 left-5 w-96 h-[500px] rounded text-center overflow-hidden flex flex-col gap-5 items-center">
+    <form onSubmit={handleSubmit} className="relative bg-white border-2 left-5 w-96 h-[500px] rounded text-center overflow-hidden flex flex-col gap-5 items-center">
       <Input
-      color={color}
+      color={color.cor}
       className=""
       placeholder="Título"
       type="text"
@@ -30,7 +30,7 @@ const ModalAdd = ({color, setColor, functionAddnotes}) => {
       <div className="flex flex-col gap-3 items-center">
         <label className="text-lg">Selecione uma cor </label>
         <div className="">
-          <SpanCores setColor={setColor}/>
+          <SpanCores setAtributes={setColor}/>
           
         </div>
       </div>

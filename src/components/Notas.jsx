@@ -1,14 +1,17 @@
 import {useState } from "react"
 
-export default function Notas({ titulo, notas, cor,  setNotasModal, setTituloModal, setToggleClose }) {
+export default function Notas({ titulo, notas, cor,  setAtributes, setToggleClose }) {
 
   const [toggleHover, setToggleHover] = useState(false)
  
  
   // pegar o estado com os objetos e passar o objeto novo, não precisando de todas essas props
   const handleOpenModalEdit = (titulo, notas) => {
-    setTituloModal(titulo)
-    setNotasModal(notas)
+    setAtributes({
+      titulo: titulo,
+      notas: notas,
+      cor: cor
+    })
 
     setToggleClose(false)
   };
